@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, DateTime, ForeignKey, func
-from sqlalchemy.orm import declarative_base
+from ..db.base import Base
 
-Base = declarative_base()
 
 class Borrowing(Base):
     __tablename__ = "borrowing"
