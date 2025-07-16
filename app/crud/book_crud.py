@@ -8,3 +8,11 @@ async def fetch_all(session: AsyncSession) -> list[Book]:
     """
     result = await session.execute(select(Book))
     return result.scalars().all()
+
+
+async def create_book(book_data: dict, db: AsyncSession) -> Book:
+    new_book = Book(**book_data)
+    db.add(new_book)
+    await db.commit()
+    await db.refresh(new_book)
+    return new_book
