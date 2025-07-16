@@ -11,7 +11,8 @@ templates = Jinja2Templates(directory="templates")
 async def get_all_books(request: Request, db: AsyncSession = Depends(get_session)):
     # return await list_books(db)
     books = await    list_books(db)
-    return templates.TemplateResponse(name="home.html", context={
+
+    return templates.TemplateResponse(name="books/list.html", context={
             "request": request,        
             "books": books
         })

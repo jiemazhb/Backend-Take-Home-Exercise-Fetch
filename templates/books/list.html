@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Book List{% endblock %}
+
+{% block content %}
+  <h1 class="text-3xl font-semibold mb-6">📖 Book List</h1>
+
+  {% if books %}
+    <ul class="space-y-3">
+      {% for book in books %}
+        <li class="p-4 bg-white rounded shadow hover:bg-gray-50">
+          <div class="font-medium text-lg">{{ book.title }}</div>
+          <div class="text-sm text-gray-500">by {{ book.author }}</div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-gray-600">No books available.</p>
+  {% endif %}
+{% endblock %}
